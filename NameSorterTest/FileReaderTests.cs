@@ -7,6 +7,14 @@ namespace NameSorter.Tests
     [TestClass]
     public class FileReaderTests
     {
+        private FileReader fileReader;
+
+        [TestInitialize]
+        public void InitialiseTest()
+        {
+            fileReader = new FileReader();
+        }
+
         [TestMethod]
         public void ReadLinesWithValidFilePath()
         {
@@ -24,7 +32,7 @@ namespace NameSorter.Tests
             }
 
             //Act
-            var testList = FileReader.ReadLines(filePath);
+            var testList = fileReader.ReadLines(filePath);
 
             //Assert
             CollectionAssert.AreEqual(nameList, testList);

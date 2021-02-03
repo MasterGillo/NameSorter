@@ -10,10 +10,12 @@ namespace NameSorter
     /// </summary>
     public class PersonNameCollection : IPersonNameCollection
     {
+        private readonly IPersonNameSorter personNameSorter;
         public List<PersonName> PersonNames { get; private set; }
 
-        public PersonNameCollection()
+        public PersonNameCollection(IPersonNameSorter personNameSorter)
         {
+            this.personNameSorter = personNameSorter;
             PersonNames = new List<PersonName>();
         }
 
@@ -31,7 +33,7 @@ namespace NameSorter
         /// Adds to the list of person names from a list of strings
         /// </summary>
         /// <param name="names"></param>
-        public void Add(List<string> names)
+        public void AddList(List<string> names)
         {
             foreach (var name in names)
             {
@@ -47,7 +49,8 @@ namespace NameSorter
         /// </summary>
         public void Sort()
         {
-            PersonNames = PersonNames.OrderBy(x => x.LastName).ThenBy(x => x.GivenNames).ToList();
+            PersonNames = personNameSorter.Sort(PersonNames);
+
         }
     }
 }

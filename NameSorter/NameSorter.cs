@@ -1,4 +1,5 @@
 ﻿using NameSorter.Interfaces;
+using System;
 using System.Linq;
 
 namespace NameSorter
@@ -20,10 +21,15 @@ namespace NameSorter
         {
             var nameList = fileReader.ReadLines(filePath);
 
-            personNameCollection.Add(nameList);
+            personNameCollection.AddList(nameList);
             personNameCollection.Sort();
 
             fileWriter.WriteLines("./sorted-names-list.txt", personNameCollection.PersonNames.Select(x => x.FullName).ToList());
+
+            foreach (var personName in personNameCollection.PersonNames)
+            {
+                Console.WriteLine(personName.FullName);
+            }
         }
     }
 }

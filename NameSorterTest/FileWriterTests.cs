@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NameSorter;
 using System.Collections.Generic;
 using System.IO;
 
@@ -8,6 +7,14 @@ namespace NameSorter.Tests
     [TestClass]
     public class FileWriterTests
     {
+        private FileWriter fileWriter;
+
+        [TestInitialize]
+        public void InitialiseTest()
+        {
+            fileWriter = new FileWriter();
+        }
+
         [TestMethod]
         public void WriteFileWithValidPath()
         {
@@ -20,7 +27,7 @@ namespace NameSorter.Tests
             var testList = new List<string>();
 
             //Act
-            FileWriter.WriteLines(filePath, nameList);
+            fileWriter.WriteLines(filePath, nameList);
 
             //Assert
             var file = new StreamReader(filePath);

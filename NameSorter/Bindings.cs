@@ -10,6 +10,7 @@ namespace NameSorter
             Bind<IFileReader>().To<FileReader>();
             Bind<IFileWriter>().To<FileWriter>();
             Bind<IPersonNameCollection>().To<PersonNameCollection>();
+            Bind<IPersonNameSorter>().To<PersonNameSorter>();
         }
     }
 }

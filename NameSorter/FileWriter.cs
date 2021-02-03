@@ -1,5 +1,4 @@
 ﻿using NameSorter.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -21,7 +20,6 @@ namespace NameSorter
             foreach (var line in lines)
             {
                 streamWriter.WriteLine(line);
-                Console.WriteLine(line);
             }
         }
     }

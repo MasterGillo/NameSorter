@@ -23,6 +23,7 @@ namespace NameSorter
 
             var nameSorter = new NameSorter(fileReader, fileWriter, personNameCollection);
             nameSorter.Process(args[0]);
+            Console.ReadLine();
         }
     }
 }
