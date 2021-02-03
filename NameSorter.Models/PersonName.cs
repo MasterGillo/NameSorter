@@ -1,4 +1,4 @@
-﻿namespace NameSorter
+﻿namespace NameSorter.Models
 {
     public class PersonName
     {

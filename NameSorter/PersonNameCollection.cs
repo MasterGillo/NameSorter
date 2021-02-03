@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using NameSorter.Interfaces;
+using NameSorter.Models;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace NameSorter
@@ -6,7 +8,7 @@ namespace NameSorter
     /// <summary>
     /// Manages a list of PersonNames 
     /// </summary>
-    public class PersonNameCollection
+    public class PersonNameCollection : IPersonNameCollection
     {
         public List<PersonName> PersonNames { get; private set; }
 
